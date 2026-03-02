@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jemima's Terminal Adventure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="app-header">
+    <div id="header-left">
+      <span id="game-title">Jemima's Terminal Adventure</span>
+    </div>
+    <div id="xp-section">
+      <span id="xp-label">XP</span>
+      <div id="xp-bar-track">
+        <div id="xp-bar-fill"></div>
+      </div>
+      <span id="xp-value">0 / 600</span>
+    </div>
+  </header>
+
+  <!-- Main layout -->
+  <main id="app-main">
+
+    <!-- Left: Mission Panel -->
+    <section id="mission-panel">
+      <div id="mission-header">
+        <span id="mission-badge">MISSION 1</span>
+        <h2 id="mission-title">Loading...</h2>
+      </div>
+      <div id="mission-story"></div>
+      <div id="mission-steps">
+        <h3>Your Checklist</h3>
+        <ul id="steps-list"></ul>
+      </div>
+      <div id="mission-hint" class="hidden">
+        <span id="hint-icon">💡</span>
+        <span id="hint-text"></span>
+      </div>
+    </section>
+
+    <!-- Right: File Tree Panel -->
+    <section id="tree-panel">
+      <div id="tree-header">
+        <span id="tree-title">File System</span>
+        <span id="cwd-display"></span>
+      </div>
+      <div id="file-tree"></div>
+    </section>
+
+  </main>
+
+  <!-- Terminal (full width, bottom) -->
+  <div id="terminal-wrapper">
+    <div id="terminal-history"></div>
+    <div id="terminal-input-row">
+      <span id="terminal-prompt">jemima@terminal:~/home $</span>
+      <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" autofocus placeholder="type a command...">
+    </div>
+  </div>
+
+  <!-- Mission Success Overlay -->
+  <div id="overlay-success" class="overlay hidden">
+    <div class="overlay-card success-card">
+      <div id="success-emoji">🎉</div>
+      <h2 id="success-title">Mission Complete!</h2>
+      <p id="success-message"></p>
+      <div id="success-xp">+<span id="success-xp-amount">100</span> XP</div>
+      <button id="btn-next-mission" class="btn-primary">Next Mission →</button>
+      <button id="btn-start-assessment" class="btn-primary hidden">Take the Assessment!</button>
+    </div>
+  </div>
+
+  <!-- Assessment Overlay -->
+  <div id="overlay-assessment" class="overlay hidden">
+    <div class="overlay-card assessment-card">
+      <h2 id="assessment-title">Assessment Time!</h2>
+      <p id="assessment-subtitle">Let's see what you've learned. No pressure — just do your best!</p>
+      <div id="assessment-body">
+
+        <!-- Part A: Practical Tasks -->
+        <div id="part-a" class="hidden">
+          <div id="part-a-header">
+            <span class="part-label">Part A — Practical (60 pts)</span>
+            <span id="part-a-progress">Task 1 of 6</span>
+          </div>
+          <div id="part-a-task-card">
+            <p id="part-a-instruction"></p>
+            <div id="part-a-status"></div>
+          </div>
+          <div id="part-a-score-tally">Score: <span id="part-a-running-score">0</span> / 60</div>
+        </div>
+
+        <!-- Part B: Quiz -->
+        <div id="part-b" class="hidden">
+          <div id="part-b-header">
+            <span class="part-label">Part B — Quick Quiz (40 pts)</span>
+            <span id="part-b-progress">Question 1 of 4</span>
+          </div>
+          <div id="part-b-question-card">
+            <p id="part-b-question"></p>
+            <div id="part-b-options"></div>
+          </div>
+          <div id="part-b-score-tally">Score: <span id="part-b-running-score">0</span> / 40</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Final Results Overlay -->
+  <div id="overlay-results" class="overlay hidden">
+    <div class="overlay-card results-card">
+      <div id="results-trophy">🏆</div>
+      <h2 id="results-heading">Assessment Complete!</h2>
+      <div id="results-score-display">
+        <span id="results-score">0</span>
+        <span id="results-out-of">/ 100</span>
+      </div>
+      <div id="results-grade"></div>
+      <div id="results-breakdown">
+        <div class="breakdown-item">
+          <span>Part A (Practical)</span>
+          <span id="breakdown-a">0 / 60</span>
+        </div>
+        <div class="breakdown-item">
+          <span>Part B (Quiz)</span>
+          <span id="breakdown-b">0 / 40</span>
+        </div>
+      </div>
+      <button id="btn-copy-score" class="btn-secondary">Copy Score</button>
+      <button id="btn-play-again" class="btn-primary">Play Again</button>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div id="toast" class="hidden"></div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <script src="game.js"></script>
+</body>
+</html>
