@@ -1,7 +1,7 @@
 {
   "name": "terminal-game",
   "version": "1.0.0",
-  "description": "Jemima's Terminal Learning Game",
+  "description": "Jemimiah's Terminal Learning Game",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

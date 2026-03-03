@@ -1,5 +1,5 @@
 /* ================================================
-   Jemima's Terminal Adventure — game.js
+   Jemimiah's Terminal Adventure — game.js
    ================================================
    Section 1: Filesystem State & Helpers
    Section 2: Command Implementations
@@ -810,7 +810,7 @@ function copyScore() {
   const partB = document.getElementById('breakdown-b').textContent;
   const grade = document.getElementById('results-grade').textContent;
 
-  const text = `Jemima's Terminal Adventure — Assessment Results\n` +
+  const text = `Jemimiah's Terminal Adventure — Assessment Results\n` +
     `Overall: ${score}/100 — ${grade}\n` +
     `Part A (Practical): ${partA}\n` +
     `Part B (Quiz): ${partB}`;
